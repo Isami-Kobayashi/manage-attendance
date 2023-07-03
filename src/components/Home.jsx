@@ -50,7 +50,7 @@ export const Home = (props) => {
   //「＿」は単純に引数として書く必要があるため、記述はされたが特に使われていない」から気にしないでOK
   [...Array(7)].map((_, id) => {
     dateList.push(
-      //現在時刻に、
+      //現在時刻に
       moment()
         //0~7を足す＝現在の日付に０～７を足して1週間の日付を格納
         .add(dateId + id, "days")
