@@ -91,7 +91,11 @@ export const Home = (props) => {
                       </TableCell>
                       {dateList.map((id) => (
                         <TableCell key={id} align="center">
-                          <AttendPlaceTime options={categories} />
+                          <AttendPlaceTime
+                            options={categories}
+                            date={id}
+                            user={user.id}
+                          />
                           <AttendPlaceTime options={attentive} />
                           <AttendOut
                             AttendPeople={props.AttendPeople}
