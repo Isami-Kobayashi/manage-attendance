@@ -1,6 +1,6 @@
 import React from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
 export const AttendPlaceTime = (props) => {
@@ -10,10 +10,8 @@ export const AttendPlaceTime = (props) => {
     console.log(type1);
     console.log(props.date);
     console.log(props.user);
-    const addDataRef = collection(db, "users");
-    await addDoc(addDataRef, {
+    await setDoc(doc(db, "users", props.user), {
       date: props.date,
-      name: props.user,
       place: type1,
     });
   };
