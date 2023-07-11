@@ -4,7 +4,6 @@ import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 export const AttendSelect = (props) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
-    console.log(value);
     props.handleValueChange(value);
   };
 

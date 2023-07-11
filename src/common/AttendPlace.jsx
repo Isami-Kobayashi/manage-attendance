@@ -1,17 +1,14 @@
 import React from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
-import { setDoc, doc } from "firebase/firestore";
+import { updateDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const AttendPlaceTime = (props) => {
+export const AttendPlace = (props) => {
   const saveDB = async (event) => {
     event.preventDefault();
     const type1 = event.target.value;
-    console.log(type1);
-    console.log(props.date);
-    console.log(props.user);
-    await setDoc(doc(db, "users", props.user), {
-      date: props.date,
+    const docRef = doc(db, "users", props.user, props.date, "aaa");
+    await setDoc(docRef, {
       place: type1,
     });
   };

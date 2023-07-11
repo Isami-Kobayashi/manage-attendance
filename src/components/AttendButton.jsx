@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AttendSelect } from "../common/AttendSelect";
 import { Button } from "@mui/material";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export const AttendButton = (props) => {
   const member = [
-    { id: "佐竹", name: "佐竹" },
     { id: "小林", name: "小林" },
     { id: "高橋", name: "高橋" },
   ];
@@ -15,13 +16,37 @@ export const AttendButton = (props) => {
     setPeople(newValue);
   };
 
-  const handleInChange = () => {
+  const handleInChange = async (event) => {
+    event.preventDefault();
     const value = people;
-    props.handleAttendPeopleChange(value);
+    if (value === "高橋") {
+      const docRef = doc(db, "users", "eSNhDrNbl1Ds8bNPlSIj");
+      await updateDoc(docRef, {
+        now: "△",
+      });
+    }
+    if (value === "小林") {
+      const docRef = doc(db, "users", "gvqlXDrvQWr2mwLWHjOL");
+      await updateDoc(docRef, {
+        now: "△",
+      });
+    }
   };
-  const handleOutChange = () => {
+  const handleOutChange = async (event) => {
+    event.preventDefault();
     const value = people;
-    props.handleOutPeopleChange(value);
+    if (value === "高橋") {
+      const docRef = doc(db, "users", "eSNhDrNbl1Ds8bNPlSIj");
+      await updateDoc(docRef, {
+        now: "-",
+      });
+    }
+    if (value === "小林") {
+      const docRef = doc(db, "users", "gvqlXDrvQWr2mwLWHjOL");
+      await updateDoc(docRef, {
+        now: "-",
+      });
+    }
   };
 
   return (

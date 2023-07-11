@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
-import { AttendButton } from "../components/AttendButton";
+import { AttendPlace } from "../common/AttendPlace";
+import { AttendTime } from "../common/AttendTime";
+import { AttendOut } from "../common/AttendOut";
 import {
   Table,
   TableCell,
@@ -16,7 +18,7 @@ import "../assets/base.css";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const Home = (props) => {
+export const Edit = (props) => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const usersCollectionRef = collection(db, "users");
@@ -28,6 +30,20 @@ export const Home = (props) => {
   }, []);
 
   const [dateId, setDateId] = useState(0);
+
+  const categories = [
+    { id: "八王子", name: "八王子" },
+    { id: "在宅", name: "在宅" },
+    { id: "羽村", name: "羽村" },
+    { id: "初台", name: "初台" },
+    { id: "休暇", name: "休" },
+  ];
+
+  const attentive = [
+    { id: "早", name: "早" },
+    { id: "定時", name: "定時" },
+    { id: "遅", name: "遅" },
+  ];
 
   const dateList = [];
   const weeksEn = [];
@@ -49,13 +65,11 @@ export const Home = (props) => {
         .format("ddd")
     );
   });
-  console.log(users);
-  const today = "07/11(Tue)";
+
   return (
-    <main className="main layoutHome">
+    <main className="main">
       <div className="container">
         <div className="section-container">
-          <AttendButton users={users} />
           <TableContainer component={Paper}>
             <Table className="section-table" aria-label="simple table">
               <TableHead>
@@ -77,8 +91,22 @@ export const Home = (props) => {
                       </TableCell>
                       {dateList.map((id) => (
                         <TableCell key={id} align="center">
-                          {user.time}
-                          {id === today && user.now}
+                          <AttendPlace
+                            options={categories}
+                            date={id}
+                            user={user.id}
+                          />
+                          <AttendTime
+                            options={attentive}
+                            date={id}
+                            user={user.id}
+                          />
+                          <AttendOut
+                            AttendPeople={props.AttendPeople}
+                            OutPeople={props.OutPeople}
+                            staff={user.name}
+                            id={id}
+                          />
                         </TableCell>
                       ))}
                     </TableRow>

@@ -1,6 +1,6 @@
 .arrowLeft {
   position: absolute;
-  top: 90px;
+  top: 200px;
   left: -8px;
   width: 60px;
   transform: translateY(-50%) scale(-1, 1);
@@ -8,8 +8,12 @@
 
 .arrowRight {
   position: absolute;
-  top: 90px;
+  top: 200px;
   right: -8px;
   width: 60px;
   transform: translateY(-50%);
+}
+
+.layoutHome {
+  margin-top: 50px;
 }

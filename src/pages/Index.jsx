@@ -1,30 +1,17 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Edit } from "../components/Edit";
 import { Home } from "../components/Home";
-import { AttendButton } from "../components/AttendButton";
+import { Header } from "../components/Header";
 
 export const Index = () => {
-  const [AttendPeople, setAttendPeople] = useState("");
-  const [OutPeople, setOutPeople] = useState("");
-  const handleAttendPeopleChange = (newValue) => {
-    setAttendPeople(newValue);
-  };
-  const handleOutPeopleChange = (newValue) => {
-    setOutPeople(newValue);
-  };
-
   return (
     <div>
-      <AttendButton
-        handleAttendPeopleChange={handleAttendPeopleChange}
-        handleOutPeopleChange={handleOutPeopleChange}
-      />
+      <Header />
       <BrowserRouter>
         <Routes>
-          <Route
-            path={`/`}
-            element={<Home AttendPeople={AttendPeople} OutPeople={OutPeople} />}
-          />
+          <Route path={`/`} element={<Home />} />
+          <Route path={`/edit`} element={<Edit />} />
         </Routes>
       </BrowserRouter>
     </div>
