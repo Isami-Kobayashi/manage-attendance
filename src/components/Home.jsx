@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import arrow from "../assets/arrow-bk.png";
 import "../assets/base.css";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
 export const Home = (props) => {
@@ -28,7 +28,6 @@ export const Home = (props) => {
   }, []);
 
   const [dateId, setDateId] = useState(0);
-
   const dateList = [];
   const weeksEn = [];
 
@@ -49,7 +48,6 @@ export const Home = (props) => {
         .format("ddd")
     );
   });
-  console.log(users);
   const today = "07/11(Tue)";
   return (
     <main className="main layoutHome">
@@ -77,7 +75,6 @@ export const Home = (props) => {
                       </TableCell>
                       {dateList.map((id) => (
                         <TableCell key={id} align="center">
-                          {user.time}
                           {id === today && user.now}
                         </TableCell>
                       ))}

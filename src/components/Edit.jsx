@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { AttendPlace } from "../common/AttendPlace";
 import { AttendTime } from "../common/AttendTime";
-import { AttendOut } from "../common/AttendOut";
 import {
   Table,
   TableCell,
@@ -100,12 +99,6 @@ export const Edit = (props) => {
                             options={attentive}
                             date={id}
                             user={user.id}
-                          />
-                          <AttendOut
-                            AttendPeople={props.AttendPeople}
-                            OutPeople={props.OutPeople}
-                            staff={user.name}
-                            id={id}
                           />
                         </TableCell>
                       ))}
