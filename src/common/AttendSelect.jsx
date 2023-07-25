@@ -1,5 +1,6 @@
 import React from "react";
 import { InputLabel, MenuItem, FormControl, Select } from "@mui/material";
+import "../assets/base.css";
 
 export const AttendSelect = (props) => {
   const handleInputChange = (event) => {
@@ -8,7 +9,7 @@ export const AttendSelect = (props) => {
   };
 
   return (
-    <FormControl>
+    <FormControl className="selectWidth">
       <InputLabel></InputLabel>
       <Select onChange={handleInputChange}>
         {props.options.map((option) => (

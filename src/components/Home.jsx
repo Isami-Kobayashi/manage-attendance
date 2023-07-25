@@ -62,7 +62,13 @@ export const Home = (props) => {
                   <TableCell></TableCell>
                   {dateList.map((date, id) => (
                     <TableCell key={id} align="center">
-                      {date}
+                      {date.includes("Sat") ? (
+                        <span className="holiday">{date}</span>
+                      ) : date.includes("Sun") ? (
+                        <span className="holiday">{date}</span>
+                      ) : (
+                        date
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -70,8 +76,13 @@ export const Home = (props) => {
               <TableBody>
                 {users.length > 0 &&
                   users.map((user) => (
-                    <TableRow>
-                      <TableCell key={user.id} component="th" scope="row">
+                    <TableRow className="aaaa">
+                      <TableCell
+                        key={user.id}
+                        component="th"
+                        scope="row"
+                        align="center"
+                      >
                         {user.name}
                       </TableCell>
                       {dateList.map((id) => (

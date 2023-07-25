@@ -1,19 +1,84 @@
 .arrowLeft {
   position: absolute;
-  top: 200px;
-  left: -8px;
+  top: 233px;
+  left: -10px;
   width: 60px;
   transform: translateY(-50%) scale(-1, 1);
 }
 
 .arrowRight {
   position: absolute;
-  top: 200px;
-  right: -8px;
+  top: 233px;
+  right: -10px;
   width: 60px;
   transform: translateY(-50%);
 }
 
 .layoutHome {
   margin-top: 50px;
+}
+
+.color {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.attendWrapper {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.selectMargin {
+  padding: 60px;
+}
+
+.selectWidth {
+  width: 100px;
+  padding: 20px;
+}
+
+.bold {
+  font-weight: 500 !important;
+}
+
+.dotNone {
+  padding-left: 0px;
+}
+
+.dotNone li {
+  list-style: none;
+  margin-bottom: 2px;
+  padding: 3px 0;
+  border: solid 1px #999999;
+}
+
+.down {
+  color: #666;
+  font-weight: lighter;
+  font-size: 5px;
+}
+
+.angle {
+  background-color: aqua;
+  padding: 2px;
+}
+
+.stick {
+  background-color: tomato;
+  padding: 2px;
+}
+
+.aaaa {
+  height: 10px;
+}
+
+.holiday {
+  background-color: orange;
+  padding: 10px;
+}
+
+.editAll {
+  margin-top: 200px;
 }

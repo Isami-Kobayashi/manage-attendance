@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 
-export const StoreInfo = (props) => {
+export const Info = (props) => {
   const user = props.user.id;
   const date = props.date;
 
@@ -56,16 +56,6 @@ export const StoreInfo = (props) => {
       return listInfoPlace[0].place;
     }
   };
-  const listInfoNow = [];
-  const InfoNow = () => {
-    memos.map((id) => {
-      listInfoNow.push(id);
-    });
-    console.log(listInfoNow[0]);
-    if (listInfoNow[0] !== undefined) {
-      return listInfoNow[0].now;
-    }
-  };
 
   return (
     <>
@@ -77,14 +67,6 @@ export const StoreInfo = (props) => {
         <li>
           <span className="down">場所：</span>
           {InfoPlace()}
-        </li>
-        <li>
-          <span className="down">勤怠：</span>
-          {InfoNow() === "△" ? (
-            <span className="angle">△</span>
-          ) : InfoNow() === "-" ? (
-            <span className="stick">ー</span>
-          ) : null}
         </li>
       </ul>
     </>

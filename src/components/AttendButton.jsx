@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import moment from "moment";
+import "../assets/base.css";
 
 export const AttendButton = (props) => {
   const member = [
@@ -94,11 +95,14 @@ export const AttendButton = (props) => {
   };
 
   return (
-    <div>
-      <AttendSelect options={member} handleValueChange={handleValueChange} />
-      <h1>{people}</h1>
+    <div className="attendWrapper">
+      <AttendSelect
+        className="selectMargin"
+        options={member}
+        handleValueChange={handleValueChange}
+      />
       <Button variant="contained" onClick={handleInChange}>
-        出勤{todayFormat}
+        出勤
       </Button>
       <Button variant="outlined" onClick={handleOutChange}>
         退勤

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { AttendPlace } from "../common/AttendPlace";
 import { AttendTime } from "../common/AttendTime";
+import { Info } from "../common/Info";
 import {
   Table,
   TableCell,
@@ -68,7 +69,7 @@ export const Edit = (props) => {
   return (
     <main className="main">
       <div className="container">
-        <div className="section-container">
+        <div className="section-container editAll">
           <TableContainer component={Paper}>
             <Table className="section-table" aria-label="simple table">
               <TableHead>
@@ -76,7 +77,13 @@ export const Edit = (props) => {
                   <TableCell></TableCell>
                   {dateList.map((date, id) => (
                     <TableCell key={id} align="center">
-                      {date}
+                      {date.includes("Sat") ? (
+                        <span className="holiday">{date}</span>
+                      ) : date.includes("Sun") ? (
+                        <span className="holiday">{date}</span>
+                      ) : (
+                        date
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -100,6 +107,7 @@ export const Edit = (props) => {
                             date={id}
                             user={user.id}
                           />
+                          <Info user={user} date={id} />
                         </TableCell>
                       ))}
                     </TableRow>
