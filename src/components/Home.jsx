@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { AttendButton } from "../components/AttendButton";
+import { StoreInfo } from "../common/StoreInfo";
 import {
   Table,
   TableCell,
@@ -13,7 +14,7 @@ import {
 } from "@mui/material";
 import arrow from "../assets/arrow-bk.png";
 import "../assets/base.css";
-import { collection, getDocs, doc } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 export const Home = (props) => {
@@ -48,7 +49,7 @@ export const Home = (props) => {
         .format("ddd")
     );
   });
-  const today = "07/11(Tue)";
+
   return (
     <main className="main layoutHome">
       <div className="container">
@@ -75,7 +76,7 @@ export const Home = (props) => {
                       </TableCell>
                       {dateList.map((id) => (
                         <TableCell key={id} align="center">
-                          {id === today && user.now}
+                          <StoreInfo user={user} date={id} />
                         </TableCell>
                       ))}
                     </TableRow>
