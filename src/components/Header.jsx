@@ -68,7 +68,7 @@ export const Header = (props) => {
               component="div"
               sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
             >
-              12開発室 出勤管理表
+              出勤管理表
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               <Button sx={{ color: "#fff" }}>

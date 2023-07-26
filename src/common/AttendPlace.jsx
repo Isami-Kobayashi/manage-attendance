@@ -17,9 +17,15 @@ export const AttendPlace = (props) => {
     );
   };
   return (
-    <FormControl>
-      <InputLabel></InputLabel>
-      <Select onChange={saveDB}>
+    <FormControl variant="filled" sx={{ m: 0.1, minWidth: 70 }}>
+      <InputLabel id="demo-simple-select-label">場所</InputLabel>
+      <Select
+        onChange={saveDB}
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        label="time"
+        className="boxWidth"
+      >
         {props.options.map((option) => (
           <MenuItem key={option.id} value={option.id}>
             {option.name}
