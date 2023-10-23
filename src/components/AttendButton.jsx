@@ -8,8 +8,8 @@ import "../assets/base.css";
 
 export const AttendButton = (props) => {
   const member = [
-    { id: "小林", name: "小林" },
-    { id: "高橋", name: "高橋" },
+    { id: "Kさん", name: "Kさん" },
+    { id: "Tさん", name: "Tさん" },
   ];
 
   var today = moment();
@@ -24,7 +24,7 @@ export const AttendButton = (props) => {
   const handleInChange = async (event) => {
     event.preventDefault();
     const value = people;
-    if (value === "高橋") {
+    if (value === "Tさん") {
       const docRef = doc(
         db,
         "users",
@@ -40,7 +40,7 @@ export const AttendButton = (props) => {
         { merge: true }
       );
     }
-    if (value === "小林") {
+    if (value === "Kさん") {
       const docRef = doc(
         db,
         "users",
@@ -60,7 +60,7 @@ export const AttendButton = (props) => {
   const handleOutChange = async (event) => {
     event.preventDefault();
     const value = people;
-    if (value === "高橋") {
+    if (value === "Tさん") {
       const docRef = doc(
         db,
         "users",
@@ -76,7 +76,7 @@ export const AttendButton = (props) => {
         { merge: true }
       );
     }
-    if (value === "小林") {
+    if (value === "Kさん") {
       const docRef = doc(
         db,
         "users",

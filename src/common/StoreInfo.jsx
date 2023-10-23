@@ -75,7 +75,7 @@ export const StoreInfo = (props) => {
           {InfoTime()}
         </li>
         <li>
-          <span className="down">場所：</span>
+          <span className="down">場所あああ：</span>
           {InfoPlace()}
         </li>
         <li>

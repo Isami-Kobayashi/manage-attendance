@@ -30,17 +30,26 @@ export const Header = (props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        12開発室 出勤管理表
+        出勤管理表
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        <ListItem disablePadding>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <Button sx={{ color: "#666666" }}>
+              <a href="/" className="colorSP">
+                HOME
+              </a>
+            </Button>
+          </ListItemButton>
+          <ListItemButton sx={{ textAlign: "center" }}>
+            <Button sx={{ color: "#666666" }}>
+              <a href="/edit" className="colorSP">
+                EDIT
+              </a>
+            </Button>
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
